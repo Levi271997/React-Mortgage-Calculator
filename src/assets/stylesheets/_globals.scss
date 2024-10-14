@@ -1,0 +1,16 @@
+$lime:#D8DB2F;
+$slate-900:hsl(202, 55%, 16%);
+$slate-700:hsl(200, 24%, 40%);
+$slate-500:hsl(200, 26%, 54%);
+$slate-300:hsl(203, 41%, 72%);
+$slate-100:hsl(202, 86%, 94%);
+$red:#D73328;  
+
+
+$trans-fast: 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+$trans-medium: 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+$trans-slow: 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+
+button{
+    all: unset;
+}

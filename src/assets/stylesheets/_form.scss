@@ -1,0 +1,235 @@
+@import './globals';
+
+
+.flex{
+    display: flex;
+}
+
+.calculator{
+    background-color: #ffffff;
+    border-radius: 20px;
+
+}
+
+.form-container{
+    padding: 40px;
+    width: 504px;
+}
+
+.title{
+    font-weight: 700;
+    line-height: 125%;
+    font-size: 24px;
+    font-family: 'Plus Jakarta Sans Bold', sans-serif;
+}
+
+.heading-bar{
+   display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .title{
+        color: $slate-900;
+    }
+  
+    #clearAll{
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        color: $slate-700;
+        border-bottom: 1px solid $slate-700;
+    }
+}
+
+$gap:24px;
+form{
+   
+    display: flex;
+    flex-wrap: wrap;
+    gap:$gap;
+}
+
+.fields{
+    color: $slate-700;
+    label{
+        font-size: 16px;
+        font-family: 'Plus Jakarta Sans';
+        line-height: 150%; 
+        display: block  ;
+        margin-bottom: 12px;
+    }
+}
+
+.fields-col-100{
+    width: 100%;
+}
+.inputholder{
+    width: 100%;
+    display: flex;
+    border:1px solid $slate-500;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: $trans-fast;
+    span{
+       padding:12px 16px;
+        color: $slate-700;
+        font-size: 18px;
+        font-weight: 700;
+        font-family:'Plus Jakarta Sans';
+        background-color: $slate-100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $trans-fast;
+    }
+    input:not([type="radio"]){
+        flex:1;
+        border: none;
+        outline: none;
+        min-height: 48px;
+        padding: 10px;
+        width: 100%;
+        color: $slate-700;
+        font-size: 18px;
+        font-weight: 700;
+        font-family:'Plus Jakarta Sans';
+    }
+}
+.inputholder:has(input:focus-visible){
+    border: 1px solid $lime;
+
+    span{
+        background-color: $lime;
+    }
+}
+
+
+.fields-col-50{
+    width: calc(50% - ($gap / 2 ));
+}
+.radio-group{
+    width: 100%;
+    display: flex;
+    border:1px solid $slate-500;
+    border-radius: 4px;
+    overflow: hidden;
+    gap:16px;
+    padding: 16px;
+    margin-block:12px;
+    transition: $trans-fast;
+
+    input[type="radio"]{
+        width: 24px;
+        height: 24px;
+    }
+
+    span{
+        font-size: 18px;
+        font-weight: 700;
+        color: $slate-900;
+    }
+}
+.radio-group:has(input[type="radio"]:checked){
+    border: 1px solid $lime;
+    background-color: rgba(216, 219, 47, 0.15);
+}
+.radio-group:hover{
+    border: 1px solid $lime;
+}
+form button[type="submit"]{
+    font-weight: 700;
+    font-size: 18px;
+    color:$slate-900;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:12px;
+    background-color: rgba(216, 219, 47, 1);
+    border-radius: 999px;
+    transition: $trans-fast;
+    cursor: pointer;
+    &:hover{
+        background-color: rgba(216, 219, 47, 0.5);
+    }
+}
+.customRadio{
+    display: flex;
+    border: 1px solid $slate-700;
+    border-radius: 999px;
+    position: relative;
+    input[type="radio"]{
+        opacity: 0;
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $lime;
+        border-radius: 999px;
+        transition: $trans-fast;
+        width: 0;
+        height: 0;
+    }
+}
+.customRadio:has(input[type="radio"]:checked){
+    border: 1px solid $lime;
+}
+.customRadio:has(input[type="radio"]:checked)::after{
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+}
+
+.error-holder{
+    font-size: 14px;
+    color: $red;
+    font-weight: 500;
+    margin-top: 10px;
+    display: none;
+   
+}
+.inputholder:has(input:user-invalid){
+    border:1px solid $red;
+
+    span{
+        background-color: $red;
+        color:#fff
+    }
+}
+.fields:has(input:user-invalid) .error-holder
+{
+    display: block;
+}
+
+@media(max-width:1200px){
+    .form-container{
+        width: 50%;
+    }
+}
+
+@media(max-width:991px){
+  
+    .form-container{
+        width: 100%;
+    }
+    // form button[type=submit]{
+    //     width: 100%;
+    // }
+}
+
+@media(max-width:480px){
+
+    form button[type=submit]{
+        width: 100%;
+        padding: 24px 35px;
+    }
+    .form-container{
+        padding: 32px 24px;
+    }
+    .fields-col-50{
+        width: 100%;
+    }
+}
